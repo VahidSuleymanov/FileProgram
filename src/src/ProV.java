@@ -86,11 +86,13 @@ public class ProV {
                 String data = vs2.nextLine().trim();
                 String[] list = data.split(";");
 
-                if (list.length == 3) { 
+                if (list.length == 3) {
                     String email = list[1].trim();
                     String sifre = list[2].trim();
 
                     if (secim4.equals(email) && secim5.equals(sifre)) {
+                        Clear();
+                        System.out.print(list[0]);
                         found = true;
                         break;
                     }
@@ -145,8 +147,8 @@ public class ProV {
      */
 
     public void sistemeGiris() {
-        Clear();
-        System.out.print("Sisteme Xos Geldiniz *_*\n");
+        //Clear();
+        System.out.println(" - Sisteme Xos Geldiniz *_*\n");
     }
 
     public void qeydiyyat() {

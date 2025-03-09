@@ -17,6 +17,7 @@ public class ProV {
     boolean bln3 = false;
     boolean bln4 = false;
     boolean bln5 = false;
+    boolean bln6 = false;
 
     public ProV() {
         try {
@@ -124,10 +125,10 @@ public class ProV {
      * }
      * secim5 = in.nextLine();
      * try {
-     * 
+     *
      * File vs = new File("src/src/Fayl.txt");
      * Scanner vs2 = new Scanner(vs);
-     * 
+     *
      * while (vs2.hasNextLine()) {
      * String data = vs2.nextLine();
      * String[] list = data.split(";");
@@ -135,11 +136,11 @@ public class ProV {
      * if (secim5.equals(sifre))
      * sistemeGiris();
      * }
-     * 
+     *
      * bln5 = true;
      * giris2();
      * vs2.close();
-     * 
+     *
      * } catch (FileNotFoundException e) {
      * e.printStackTrace();
      * }
@@ -147,18 +148,43 @@ public class ProV {
      */
 
     public void sistemeGiris() {
-        //Clear();
+        // Clear();
         System.out.println(" - Sisteme Xos Geldiniz *_*\n");
     }
 
     public void qeydiyyat() {
         Clear();
-        System.out.print("Tam adinizi daxil edin: ");
+        if (bln5) {
+            System.out.print("Bu ad sistemde var ferqli ad daxil edin!!!: ");
+            bln5 = false;
+        } else {
+            System.out.print("Tam adinizi daxil edin: ");
+        }
+
         try {
 
             FileWriter vs = new FileWriter("src/src/Fayl.txt", true);
-            String input;
-            input = in.nextLine();
+            String input = in.nextLine();
+
+            File vs1 = new File("src/src/Fayl.txt");
+            Scanner vs2 = new Scanner(vs1);
+
+            while (vs2.hasNextLine()) {
+                String data = vs2.nextLine().trim();
+                String[] list = data.split(";");
+
+                if (list.length == 3) {
+                    String tamad = list[0].trim();
+
+                    if (input.equals(tamad)) {
+                        bln5 = true;
+                        qeydiyyat();
+                    }
+                }
+            }
+
+            vs2.close();
+
             vs.write(input);
             vs.write(";");
 
@@ -166,14 +192,38 @@ public class ProV {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        qeydiyyat2();
+    }
 
+    public void qeydiyyat2() {
         Clear();
-        System.out.print("Email daxil edin: ");
+        if (bln6) {
+            System.out.print("Bu email sistemde var ferqli email daxil edin!!!: ");
+            bln6 = false;
+        } else {
+            System.out.print("Email daxil edin: ");
+        }
         try {
-
             FileWriter vs = new FileWriter("src/src/Fayl.txt", true);
-            String input2;
-            input2 = in.nextLine();
+            String input2 = in.nextLine();
+
+            File vs1 = new File("src/src/Fayl.txt");
+            Scanner vs2 = new Scanner(vs1);
+
+            while (vs2.hasNextLine()) {
+                String data = vs2.nextLine().trim();
+                String[] list = data.split(";");
+
+                if (list.length == 3) {
+                    String email = list[1].trim();
+
+                    if (input2.equals(email)) {
+                        bln6 = true;
+                        qeydiyyat2();
+                    }
+                }
+            }
+
             vs.write(input2);
             vs.write(";");
 
@@ -181,14 +231,38 @@ public class ProV {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        qeydiyyat3();
+    }
 
+    public void qeydiyyat3() {
         Clear();
-        System.out.print("Sifre teyin edin: ");
+        if (bln6) {
+            System.out.print("Bu sifre sistemde var ferqli sifre daxil edin!!!: ");
+            bln6 = false;
+        } else {
+            System.out.print("Sifre teyin edin: ");
+        }
         try {
-
             FileWriter vs = new FileWriter("src/src/Fayl.txt", true);
-            String input3;
-            input3 = in.nextLine();
+            String input3 = in.nextLine();
+
+            File vs1 = new File("src/src/Fayl.txt");
+            Scanner vs2 = new Scanner(vs1);
+
+            while (vs2.hasNextLine()) {
+                String data = vs2.nextLine().trim();
+                String[] list = data.split(";");
+
+                if (list.length == 3) {
+                    String sifre = list[2].trim();
+
+                    if (input3.equals(sifre)) {
+                        bln6 = true;
+                        qeydiyyat3();
+                    }
+                }
+            }
+
             vs.write(input3);
             vs.write("\n");
 
@@ -196,6 +270,7 @@ public class ProV {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         ugurluQeydiyyat();
     }
 
